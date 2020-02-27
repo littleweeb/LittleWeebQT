@@ -6,6 +6,7 @@
 #include <QTcpSocket>
 #include "ircoutputvalidator.h"
 #include "ircinputvalidator.h"
+#include "ircmessage.h"
 #include "Headers/DccClient/dccclient.h"
 
 class IrcClient : public QObject
@@ -16,6 +17,8 @@ public:
     void registerDccClient(DccClient *dccClient);
 public slots:
     void connectToServer(QString aServer, int aPort, QString aUserName, QString aChannels);
+    void setMessageBufferSize(qint32 size);
+    void clearMessageBuffer();
     void sendMessage(QString aMessage);
     void closeConnection();
     void onTcpConnect();
@@ -26,10 +29,11 @@ public slots:
     void Join(QString aMessage);
 signals:
     void onConnectionStatusChange(QString aConnectionStatus, bool aStatus, QString aServer, int aPort, QString aUserName, QString aChannels);
-    void onNewMessage(QString message, QString channel, QString user);
+    void onNewMessage(IrcMessage* aIrcMessage);
     void onTcpServerMessage(QString aMessage);
     void startRegister(QString aMessage);
     void startJoin(QString aMessage);
+    void messageBufferChanged();
 private:
     IrcOutputValidator ircOutputValidator;
     IrcInputValidator ircInputValidator;
@@ -37,8 +41,11 @@ private:
     ConnectionState pConnectionState;
     QTcpSocket *pTcpSocket;
 
-    const static int retry = 3;
-    const static qint64 timeout = 9000;
+    const int retry = 3;
+    const qint64 timeout = 9000;
+
+    QList<IrcMessage*> messagesBuffer;
+
 
     void Connect();
     void Disconnect();

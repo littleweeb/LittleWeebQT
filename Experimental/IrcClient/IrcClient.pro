@@ -19,9 +19,9 @@ SOURCES += \
         Sources/DccClient/dccdownloadobj.cpp \
         Sources/DccClient/dccdownloadprogress.cpp \
         Sources/DccClient/dccdownloadstatus.cpp \
-        Sources/IrcClient/IrcMessage.cpp \
         Sources/IrcClient/ircclient.cpp \
         Sources/IrcClient/ircinputvalidator.cpp \
+        Sources/IrcClient/ircmessage.cpp \
         Sources/IrcClient/ircoutputvalidator.cpp \
         Sources/QmlControllers/dccdownloadrequestcontroller.cpp \
         Sources/QmlControllers/ircchatformcontroller.cpp \

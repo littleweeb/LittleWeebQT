@@ -25,8 +25,6 @@ void IrcClient::connectToServer(QString aServer, int aPort, QString aUserName, Q
     pPort = aPort;
     pUserName = aUserName;
     pChannels = aChannels;
-    //@todo add tcp connection here
-    //@todo add protocol communication/handshake here
     int retries = 0;
     QEventLoop loop;
     do {
