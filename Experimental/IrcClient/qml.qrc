@@ -1,0 +1,16 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+    </qresource>
+    <qresource prefix="/views">
+        <file>IrcConnectForm.qml</file>
+        <file>IrcChatForm.qml</file>
+        <file>DccDownloadRequest.qml</file>
+        <file>DccDownloadViewer.qml</file>
+    </qresource>
+    <qresource prefix="/components">
+        <file>Loader.qml</file>
+        <file>FormTextInput.qml</file>
+        <file>DccDownloadAccepter.qml</file>
+    </qresource>
+</RCC>
